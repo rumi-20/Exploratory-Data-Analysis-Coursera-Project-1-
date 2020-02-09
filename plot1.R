@@ -1,0 +1,11 @@
+library(lubridate)
+data<-read.table(".\\exdata_data_household_power_consumption\\household_power_consumption.txt",sep=";",stringsAsFactor=FALSE,header=TRUE,dec=".")
+dim(data)
+class(data$Date)
+data$Date<-dmy(data$Date)
+class(data$Date)
+subset_data<-data[data$Date>="2007/02/01"&data$Date<="2007/02/02",]
+subset_data$Global_active_power<-as.numeric(subset_data$Global_active_power)
+png("plot1.png",width=480,height = 480)
+hist(subset_data$Global_active_power,col="red",xlab="Global Active Power (kilowatts)",main="Global Active Power")
+dev.off()
