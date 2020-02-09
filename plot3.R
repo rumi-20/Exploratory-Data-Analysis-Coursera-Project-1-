@@ -1,4 +1,4 @@
-library(dplyr)
+
 library(lubridate)
 data<-read.table(".\\exdata_data_household_power_consumption\\household_power_consumption.txt",sep=";",stringsAsFactor=FALSE,header=TRUE,dec=".")
 dim(data)
